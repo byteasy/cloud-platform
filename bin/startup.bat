@@ -1,0 +1,1 @@
+java -Xms512m -Xmx1024m -DJM.LOG.PATH=%LOG_HOME%\\jiuyang-system -DJM.SNAPSHOT.PATH=%LOG_HOME%\\jiuyang-system -jar system-service-1.0-SNAPSHOT.jar --spring.profiles.active=prod

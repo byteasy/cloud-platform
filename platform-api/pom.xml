@@ -5,19 +5,21 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.byteasy</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>cloud-platform</artifactId>
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>cloud-platform</artifactId>
+  <artifactId>platform-api</artifactId>
+  <packaging>jar</packaging>
   <version>1.0.0</version>
-  <packaging>pom</packaging>
+  <name>Platform service api</name>
+  <description>Platform service api</description>
 
-  <name>Cloud platform service parent</name>
-  <description>Cloud platform service</description>
-
-  <modules>
-    <module>platform-api</module>
-    <module>platform-service</module>
-  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>com.byteasy</groupId>
+      <artifactId>cloud-service-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 </project>
