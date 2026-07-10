@@ -44,7 +44,21 @@ public class SchemaDefineServiceImpl extends ServiceImpl<SchemaDefineMapper, Sch
         if (entity.getId() != null) {
             EventPublishUtil.publishEvent(new EntityDefineChangeEvent(new EntityDefineChangeSource(entity.getClassName())));
         }
+        if (entity.getShowOrder() == null) {
+            entity.setShowOrder(getMaxShowOrder(entity.getClassName()));
+        }
         return super.saveOrUpdate(entity);
+    }
+
+    protected Integer getMaxShowOrder(String className) {
+        LambdaUpdateWrapper<SchemaDefine> wrapper = new LambdaUpdateWrapper<>();
+        wrapper.eq(SchemaDefine::getClassName, className);
+        wrapper.orderByDesc(SchemaDefine::getShowOrder);
+        SchemaDefine schemaDefine = getOne(wrapper, false);
+        if (schemaDefine == null) {
+            return 1;
+        }
+        return schemaDefine.getShowOrder() + 1;
     }
 
     @Override

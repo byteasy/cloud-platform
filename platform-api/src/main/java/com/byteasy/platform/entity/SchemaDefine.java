@@ -23,28 +23,28 @@ import lombok.Setter;
 public class SchemaDefine extends AuditEntity<Long> {
 
     @TableField("service_name")
-    @FieldMeta(name = "服务", isSearch = true, showOrder = 101, width = 240, externalClass = ServiceInstance.class, externalClassPrimaryField = "code")
+    @FieldMeta(name = "服务", isSearch = true, showOrder = 101, width = 240, externalClass = ServiceInstance.class, externalClassPrimaryField = "code", isRequire = true)
     private String serviceName;
 
     @TableField("class_name")
-    @FieldMeta(name = "类", isSearch = true, showOrder = 102, width = 240)
+    @FieldMeta(name = "类", isSearch = true, showOrder = 102, width = 240, isRequire = true)
     private String className;
 
     @TableField("name")
-    @FieldMeta(name = "属性名", isSearch = true, showOrder = 103)
+    @FieldMeta(name = "属性名", isSearch = true, showOrder = 103, isRequire = true)
     private String name;
 
     @TableField("field_name")
-    @FieldMeta(name = "字段名", isSearch = true, showOrder = 104)
+    @FieldMeta(name = "字段名", isSearch = true, showOrder = 104, isRequire = true)
     private String fieldName;
 
-    @TableField("description")
-    @FieldMeta(name = "说明", showOrder = 105, isI18n = true)
-    private String description;
-
     @TableField("display_name")
-    @FieldMeta(name = "显示名", showOrder = 106, maxLength = 80, isI18n = true)
+    @FieldMeta(name = "显示名", showOrder = 105, maxLength = 80, isI18n = true)
     private String displayName;
+
+    @TableField("description")
+    @FieldMeta(name = "说明", showOrder = 106, isI18n = true)
+    private String description;
 
     @TableField("type")
     @FieldMeta(name = "字段类型", showOrder = 107)
